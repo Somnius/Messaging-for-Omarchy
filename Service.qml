@@ -8,7 +8,7 @@ Item {
   readonly property string home: Quickshell.env("HOME")
   readonly property string configDir: home + "/.config/omarchy/messaging"
   readonly property string configPath: configDir + "/config.json"
-  readonly property string repoUrl: "https://github.com/Somnius/Omarchy-Messaging"
+  readonly property string repoUrl: "https://github.com/Somnius/Messaging-for-Omarchy"
 
   // Baked web-client URLs; a custom url in config.json wins.
   // ponytail: no unread counts — that needs per-app APIs or an embedded

@@ -18,7 +18,7 @@ A speech-bubble icon sits in the bar (default: right side):
 ## Install
 
 ```sh
-omarchy plugin add https://github.com/Somnius/Omarchy-Messaging.git --enable
+omarchy plugin add https://github.com/Somnius/Messaging-for-Omarchy.git --enable
 ```
 
 Then place the widget in the bar:
