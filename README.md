@@ -8,6 +8,8 @@ A speech-bubble icon sits in the bar (default: right side):
 - **Badge** — shows how many apps are currently enabled.
 - **Hover** — tooltip with "2 of 4 apps on".
 
+<img width="428" height="659" alt="image" src="https://github.com/user-attachments/assets/e6f2ef42-d412-4b02-9acb-809e732c84ad" />
+
 ## Features
 
 - Four web clients built in: **Slack**, **Discord**, **Telegram**, **WhatsApp** — each off until you enable it.
