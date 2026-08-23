@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "id": "lef.messaging",
+  "name": "Messaging",
+  "version": "1.0.0",
+  "author": "lef",
+  "license": "MIT",
+  "description": "Web messaging hub for Slack, Discord, Telegram and WhatsApp. Bar widget shows how many apps are enabled; the panel toggles each one and opens its web client in the browser. No accounts or credentials are stored by this plugin.",
+  "kinds": [
+    "service",
+    "bar-widget"
+  ],
+  "keepLoaded": true,
+  "entryPoints": {
+    "service": "Service.qml",
+    "barWidget": "BarWidget.qml"
+  },
+  "barWidget": {
+    "displayName": "Messaging",
+    "description": "Toggle and launch web Slack, Discord, Telegram, WhatsApp.",
+    "category": "Communication",
+    "allowMultiple": false,
+    "defaultSection": "right"
+  }
+}
