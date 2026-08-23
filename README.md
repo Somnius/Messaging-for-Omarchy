@@ -8,7 +8,7 @@ A speech-bubble icon sits in the bar (default: right side):
 - **Badge** — shows how many apps are currently enabled.
 - **Hover** — tooltip with "2 of 4 apps on".
 
-<img width="428" height="659" alt="image" src="https://github.com/user-attachments/assets/e6f2ef42-d412-4b02-9acb-809e732c84ad" />
+<img width="428" height="659" alt="Messaging panel" src="preview.png" />
 
 ## Features
 
@@ -16,6 +16,7 @@ A speech-bubble icon sits in the bar (default: right side):
 - **Dedicated app window per app**: launches Chromium in `--app` mode (chromeless standalone window) with an isolated profile per app under `~/.local/share/omarchy/messaging/<app>-profile`. Sign in once; sessions persist across opens and stay quarantined from your daily browser.
 - Falls back to `xdg-open` when no Chromium-family browser is found.
 - **Zero credential handling**: the plugin stores only enable flags and URLs.
+- **Bounded configuration**: config is read with a 64 KiB ceiling; each URL is limited to 2,048 characters and must be an absolute HTTP(S) URL without credentials, whitespace, control characters or backslashes. Invalid replacements leave the last accepted state intact.
 
 ## Install
 
@@ -26,7 +27,7 @@ omarchy plugin add https://github.com/Somnius/Messaging-for-Omarchy.git --enable
 Then place the widget in the bar:
 
 ```sh
-omarchy bar plugin add lef.messaging --section right
+omarchy bar put lef.messaging --section right
 ```
 
 ### From a local checkout (development)
@@ -43,7 +44,7 @@ omarchy-shell shell rescanPlugins
 Validate at any time with:
 
 ```sh
-omarchy plugin validate ~/.config/omarchy/plugins/lef.messaging
+omarchy plugin validate "$PWD"
 ```
 
 ## Configuration
@@ -61,7 +62,7 @@ omarchy plugin validate ~/.config/omarchy/plugins/lef.messaging
 }
 ```
 
-Self-hosting alternatives or gateways? Point `url` anywhere; the Open button follows it.
+Self-hosting alternatives or gateways? Point `url` at any valid absolute HTTP(S) URL; the Open button follows it.
 
 ## IPC & keybindings
 
@@ -80,6 +81,7 @@ o.bind("SUPER + ALT + M", "Messaging panel", "omarchy-shell lef.messaging toggle
 
 ## External dependencies
 
+- Perl (provided by Omarchy) for bounded config reads and atomic writes.
 - A Chromium-family browser for app windows: `chromium` or `brave` (auto-detected), otherwise any browser via `xdg-open`.
 
 ## Uninstall

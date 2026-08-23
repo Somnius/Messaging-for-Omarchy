@@ -102,14 +102,16 @@ BarWidget {
     function enable(app: string, on: bool): string {
       if (!root.ready) return "service not ready"
       if (!root.service.defaults[app]) return "unknown app: " + app
-      root.service.setEnabled(app, on)
-      return app + " -> " + (on ? "on" : "off")
+      if (!root.service.setEnabled(app, on))
+        return root.service.lastError || "could not update " + app
+      return "queued " + app + " -> " + (on ? "on" : "off")
     }
     function launch(app: string): string {
       if (!root.ready) return "service not ready"
       if (!root.service.isEnabled(app)) return app + " is disabled"
-      root.service.openApp(app)
-      return "opening " + app
+      if (!root.service.openApp(app))
+        return root.service.lastError || "could not open " + app
+      return "launch requested for " + app
     }
     function status(): string {
       return root.ready ? JSON.stringify({ apps: root.service.apps }) : "service not ready"

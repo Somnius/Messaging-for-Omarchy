@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "id": "lef.messaging",
   "name": "Messaging",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "lef",
   "license": "MIT",
   "description": "Web messaging hub for Slack, Discord, Telegram and WhatsApp. Bar widget shows how many apps are enabled; the panel toggles each one and opens its web client in the browser. No accounts or credentials are stored by this plugin.",
