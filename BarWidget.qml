@@ -2,6 +2,7 @@ import QtQuick
 import Quickshell
 import Quickshell.Io
 import qs.Commons
+import qs.Commons as Commons
 import qs.Ui
 
 BarWidget {
@@ -46,7 +47,7 @@ BarWidget {
       anchors.verticalCenter: parent.verticalCenter
       text: "💬"
       textFormat: Text.PlainText
-      color: root.bar ? root.bar.barForeground : Color.foreground
+      color: root.bar ? root.bar.barForeground : Commons.Color.foreground
       font.family: root.bar ? root.bar.fontFamily : Style.font.family
       font.pixelSize: Style.font.body
       opacity: root.ready && root.count > 0 ? 1 : 0.45
@@ -60,7 +61,7 @@ BarWidget {
       visible: root.ready && root.count > 0
       text: String(root.count)
       textFormat: Text.PlainText
-      color: root.bar ? root.bar.barForeground : Color.foreground
+      color: root.bar ? root.bar.barForeground : Commons.Color.foreground
       font.family: root.bar ? root.bar.fontFamily : Style.font.family
       font.pixelSize: Style.font.caption
     }

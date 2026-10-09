@@ -2,6 +2,7 @@ import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
 import qs.Commons
+import qs.Commons as Commons
 import qs.Ui
 
 Panel {
@@ -13,7 +14,7 @@ Panel {
   property var hostWidget: null
   property var service: null
   readonly property var barIdentity: hostWidget || root
-  readonly property color foreground: bar ? bar.foreground : Color.foreground
+  readonly property color foreground: bar ? bar.foreground : Commons.Color.foreground
   readonly property color dim: Qt.darker(foreground, 1.45)
   readonly property string fontFamily: bar ? bar.fontFamily : Style.font.family
 
@@ -88,7 +89,7 @@ Panel {
               description: "Opens in its own chromium window; stays signed in."
               checked: root.service ? root.service.isEnabled(modelData) : false
               foreground: root.foreground
-              accent: Color.accent
+              accent: Commons.Color.accent
               fontFamily: root.fontFamily
               enabled: root.service !== null
               onClicked: if (root.service)
@@ -102,7 +103,7 @@ Panel {
               focusable: true
               enabled: root.service && root.service.isEnabled(modelData)
               foreground: root.foreground
-              accent: Color.accent
+              accent: Commons.Color.accent
               fontFamily: root.fontFamily
               onClicked: if (root.service) root.service.openApp(modelData)
             }
@@ -130,7 +131,7 @@ Panel {
           focusable: true
           enabled: root.service !== null
           foreground: root.foreground
-          accent: Color.accent
+          accent: Commons.Color.accent
           fontFamily: root.fontFamily
           onClicked: if (root.service) Qt.openUrlExternally(root.service.repoUrl)
         }
